@@ -1,0 +1,31 @@
+sub_pass=0
+sub_fail=0
+for((i=0 ; i<6 ; i++))
+do
+echo "enter the sub"
+read sub
+echo "enter the cie marks(out of 50)"
+read cie
+echo "enter the see marks(out of 50)"
+read see
+final=$((cie + see))
+case $final in
+100) echo "Grade S" ;;
+9[0-9]) echo "Grade S" ;;
+8[0-9]) echo "Grade A" ;;
+7[0-9]) echo "Grade B" ;;
+6[0-9]) echo "Grade C" ;;
+5[0-9]) echo "Grade D" ;;
+4[0-9]) echo "Grade E" ;;
+*) echo "fail" ;;
+esac
+if [ $final -le 40 ]
+then
+sub_fail=$((sub_fail+1))
+else
+sub_pass=$((sub_pass+1))
+fi
+done
+
+echo "No. of subjects passed : $sub_pass"
+echo "No. of subjects failed : $sub_fail"
